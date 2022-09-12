@@ -1,0 +1,27 @@
+{
+	"editor.tabSize": 2,
+	"eslint.format.enable": true,
+	"eslint.enable": true,
+	"eslint.options": {
+		"extensions": [
+			".js",
+			".vue",
+			".ts",
+			".tsx"
+		]
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true 
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.fontSize": 14,
+	"editor.fontFamily": "Consolas, 'Courier New', monospace",
+	"workbench.editor.enablePreview": false,
+	"files.eol": "auto",
+}

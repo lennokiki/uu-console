@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/uu-console.umd.js"></script>
+    <script src="./js/size.umd.js"></script>
+    <script src="./js/theme.umd.js"></script>
+    <style>
+      .body {
+        width: 500px;
+        margin: 0 auto;
+      }
+      .item {
+        width: 100%;
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .item button {
+        position: absolute;
+        right: 0;
+        top: 42px;
+      }
+      pre {
+        padding-top: 20px;
+        background: #555;
+        color: #fff;
+      }
+      h2 {
+        margin: 0;
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+      }
+
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #222;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #f00;
+      }
+
+      ::-webkit-scrollbar-corner {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <div class="item">
+        <h2>custom</h2>
+        <pre>
+          function log1() {
+            uuConsole.log([
+              { text: 'Hi', size: 'micro', theme: 'No201' },
+              'Boy',
+              { text: 'This is UU', style: 'color: green; background: pink' },
+              { text: 'Console', style: { fontSize: '20px', color: 'fuchsia' } },
+            ]);
+          }
+        </pre>
+        <button onclick="log1()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>mini-No301 default</h2>
+        <pre>
+          function log2() {
+            uuConsole.log(['Hello', 'World', 'Ming']);
+          }
+        </pre>
+        <button onclick="log2()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>small-No201</h2>
+        <pre>
+          function log3() {
+            uuConsole.useTheme('No201').useSize('small').log('Who', 'Am', 'I', 'YOU');
+          }
+        </pre>
+        <button onclick="log3()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>medium-No301</h2>
+        <pre>
+          function log4() {
+            uuConsole.log(
+              { text: 'Hello', theme: 'No301', size: 'medium' },
+              { text: 'World', theme: 'No302', size: 'medium' }
+            );
+          }
+        </pre>
+        <button onclick="log4()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>large-No401</h2>
+        <pre>
+          function log5() {
+            uuConsole.useTheme('No401').useSize('large').log('Hello', 'World');
+          }
+        </pre>
+        <button onclick="log5()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>huge-No505</h2>
+        <pre>
+          function log6() {
+            uuConsole.useTheme('No505').useSize('huge').log('Hello', 'World');
+          }
+        </pre>
+        <button onclick="log6()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>all theme</h2>
+        <pre>
+          function logAllTheme() {
+            const themes = [];
+            const prefix = 'No';
+            for (let i = 1; i <= 9; i++) {
+              for (let j = 1; j <= 6; j++) {
+                themes.push(`${prefix}${i}0${j}`);
+              }
+            }
+            let i = 0;
+            themes.push('Nox01');
+            uuConsole.useSize('small');
+            themes.forEach(item => {
+              uuConsole.useTheme(item).log('Hi', 'UU', 'Console', '---' + item);
+            });
+          }
+        </pre>
+        <button onclick="logAllTheme()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>all size</h2>
+        <pre>
+          function logAllSize() {
+            const sizes = ['micro', 'tiny', 'mini', 'small', 'medium', 'big', 'large', 'huge'];
+            sizes.forEach(item => {
+              uuConsole.useSize(item).useTheme('No301').log('Size:', item);
+            });
+          }
+        </pre>
+        <button onclick="logAllSize()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>custom theme</h2>
+        <pre>
+          function logCustomTheme() {
+            const themeProps = [
+              {
+                color: '#fff',
+                background: '#ff00ee',
+                fontWeight: 'bold',
+              },
+              {
+                color: '#555',
+                background: '#dd33aa',
+                fontStyle: 'italic',
+                letterSpacing: '3px',
+              },
+              'color: #ff00cc; background: #111;',
+            ];
+            uuConsole
+              .setCustomTheme('my-theme', themeProps)
+              .useTheme('my-theme')
+              .useSize('small')
+              .log('Hello', 'B-O-Y,', 'Where are you from');
+          }
+        </pre>
+        <button onclick="logCustomTheme()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>del custom theme</h2>
+        <pre>
+          function delCustomTheme() {
+            uuConsole.deleteCustomTheme('my-theme');
+          }
+        </pre>
+        <button onclick="delCustomTheme()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>custom size</h2>
+        <pre>
+          function logCustomSize() {
+            const sizeProps = [
+              {
+                fontSize: '14px',
+                padding: '5px 10px',
+              },
+              'font-size: 20px; padding: 5px;',
+            ];
+            uuConsole
+              .setCustomSize('my-size', sizeProps)
+              .useSize('my-size')
+              .useTheme('No301')
+              .log('Hello', 'Is UUConsole?');
+          }
+        </pre>
+        <button onclick="logCustomSize()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>del custom theme</h2>
+        <pre>
+          function deleteCustomSize() {
+            uuConsole.deleteCustomSize('my-size');
+          }
+        </pre>
+        <button onclick="deleteCustomSize()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>continue log</h2>
+        <pre>
+          function serialLog() {
+            uuConsole.useSize('small').useTheme('No505').log('Hello').log('World');
+          }
+        </pre>
+        <button onclick="serialLog()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>other uu instance</h2>
+        <pre>
+          function anotherUU() {
+            const nextUu = uuConsole.create();
+            nextUu.log('why', 'Why', 'Why');
+          }
+        </pre>
+        <button onclick="anotherUU()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>useThemeSort</h2>
+        <pre>
+          function useThemeSort() {
+            uuConsole.useThemeSort([0, 1, 0]).useTheme('No401').log('Set1', 'Set2', 'Set1');
+          }
+        </pre>
+        <button onclick="useThemeSort()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>useThemeSortOnce</h2>
+        <pre>
+          function useThemeSortOnce() {
+            uuConsole.useThemeSortOnce([2, 0, 0]).useTheme('No601').log('card1', 'card2', 'card3');
+            uuConsole.useTheme('No601').log('card4', 'card5', 'card6');
+          }
+        </pre>
+        <button onclick="useThemeSortOnce()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>useThemeOnce</h2>
+        <pre>
+          function useThemeOnce() {
+            uuConsole.useThemeOnce('No706').log('UUConsole', 'once');
+            uuConsole.log('UUConsole', 'once');
+          }
+        </pre>
+        <button onclick="useThemeOnce()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>useSizeOnce</h2>
+        <pre>
+          function useSizeOnce() {
+            uuConsole.useSizeOnce('tiny').log('size', 'once');
+            uuConsole.log('size', 'once');
+          }
+        </pre>
+        <button onclick="useSizeOnce()">Print</button>
+      </div>
+
+      <div class="item">
+        <h2>themeSort before and after</h2>
+        <pre>
+          function useThemeSortBeforeAndAfter() {
+            uuConsole.useTheme('No302').log('Hi', 'UU', 'Before');
+            uuConsole.useThemeSort([1, 2, 0]).log('Hi', 'UU', 'After');
+          }
+        </pre>
+        <button onclick="useThemeSortBeforeAndAfter()">Print</button>
+      </div>
+    </div>
+    <script>
+      uuConsole.installTheme(uuConsole.toAry(uuThemes));
+      uuConsole.installSize(uuConsole.toAry(uuSizes));
+
+      function log1() {
+        uuConsole.log([
+          { text: 'Hi', size: 'micro', theme: 'No201' },
+          'Boy',
+          { text: 'This is UU', style: 'color: green; background: pink' },
+          { text: 'Console', style: { fontSize: '20px', color: 'fuchsia' } },
+        ]);
+      }
+
+      function log2() {
+        uuConsole.log(['Hello', 'World', 'Ming']);
+      }
+
+      function log3() {
+        uuConsole.useTheme('No201').useSize('small').log('Who', 'Am', 'I', 'YOU');
+      }
+
+      function log4() {
+        uuConsole.log(
+          { text: 'Hello', theme: 'No301', size: 'medium' },
+          { text: 'World', theme: 'No302', size: 'medium' }
+        );
+      }
+
+      function log5() {
+        uuConsole.useTheme('No401').useSize('large').log('Hello', 'World');
+      }
+
+      function log6() {
+        uuConsole.useTheme('No505').useSize('huge').log('Hello', 'World');
+      }
+
+      function logAllTheme() {
+        const themes = [];
+        const prefix = 'No';
+        for (let i = 1; i <= 9; i++) {
+          for (let j = 1; j <= 6; j++) {
+            themes.push(`${prefix}${i}0${j}`);
+          }
+        }
+        let i = 0;
+        themes.push('Nox01');
+        uuConsole.useSize('small');
+        themes.forEach(item => {
+          uuConsole.useTheme(item).log('Hi', 'UU', 'Console', '---' + item);
+        });
+      }
+
+      function logAllSize() {
+        const sizes = ['micro', 'tiny', 'mini', 'small', 'medium', 'big', 'large', 'huge'];
+        sizes.forEach(item => {
+          uuConsole.useSize(item).useTheme('No301').log('Size:', item);
+        });
+      }
+
+      function logCustomTheme() {
+        const themeProps = [
+          {
+            color: '#fff',
+            background: '#ff00ee',
+            fontWeight: 'bold',
+          },
+          {
+            color: '#555',
+            background: '#dd33aa',
+            fontStyle: 'italic',
+            letterSpacing: '3px',
+          },
+          'color: #ff00cc; background: #111;',
+        ];
+        uuConsole
+          .setCustomTheme('my-theme', themeProps)
+          .useTheme('my-theme')
+          .useSize('small')
+          .log('Hello', 'B-O-Y,', 'Where are you from');
+      }
+
+      function delCustomTheme() {
+        uuConsole.deleteCustomTheme('my-theme');
+      }
+
+      function logCustomSize() {
+        const sizeProps = [
+          {
+            fontSize: '14px',
+            padding: '5px 10px',
+          },
+          'font-size: 20px; padding: 5px;',
+        ];
+        uuConsole
+          .setCustomSize('my-size', sizeProps)
+          .useSize('my-size')
+          .useTheme('No301')
+          .log('Hello', 'Is UUConsole?');
+      }
+
+      function deleteCustomSize() {
+        uuConsole.deleteCustomSize('my-size');
+      }
+
+      function serialLog() {
+        uuConsole.useSize('small').useTheme('No505').log('Hello').log('World');
+      }
+
+      function anotherUU() {
+        const nextUu = uuConsole.create();
+        nextUu.log('why', 'Why', 'Why');
+      }
+
+      function useThemeSort() {
+        uuConsole.useThemeSort([0, 1, 0]).useTheme('No401').log('Set1', 'Set2', 'Set1');
+      }
+
+      function useThemeSortOnce() {
+        uuConsole.useThemeSortOnce([2, 0, 0]).useTheme('No601').log('card1', 'card2', 'card3');
+        uuConsole.useTheme('No601').log('card4', 'card5', 'card6');
+      }
+
+      function useThemeOnce() {
+        uuConsole.useThemeOnce('No706').log('UUConsole', 'once');
+        uuConsole.log('UUConsole', 'once');
+      }
+
+      function useSizeOnce() {
+        uuConsole.useSizeOnce('tiny').log('size', 'once');
+        uuConsole.log('size', 'once');
+      }
+
+      function useThemeSortBeforeAndAfter() {
+        uuConsole.useTheme('No302').log('Hi', 'UU', 'Before');
+        uuConsole.useThemeSort([1, 2, 0]).log('Hi', 'UU', 'After');
+      }
+    </script>
+  </body>
+</html>

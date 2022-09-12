@@ -1,0 +1,16 @@
+# build/
+coverage/
+lib/
+dist/
+mocks/
+node_modules/
+demos/
+examples/
+.cache
+public/
+bin
+esm/
+es/
+.eslintrc.js
+jest.config.js
+README.md
