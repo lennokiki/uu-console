@@ -1,7 +1,7 @@
 {
   "name": "uu-console",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "An enhanced version of console.log",
   "main": "dist/uu-console.umd.js",
   "module": "dist/uu-console.esm.js",
   "typings": "dist/types/index.d.ts",
@@ -22,7 +22,8 @@
   "keywords": [
     "console.log",
     "console",
-    "log"
+    "log",
+    "uu"
   ],
   "repository": {
     "type": "git",
