@@ -1,7 +1,6 @@
 package-lock.json
 yarn-lock.json
 .DS_Store
-examples/js/*
 node_modules/
 coverage/
 .idea

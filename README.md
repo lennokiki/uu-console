@@ -1,6 +1,11 @@
 # uu-console
 
-Ho, this is a toy. When you use `console.log` to print some logs, this can help you do some useless things.
+![npm](https://img.shields.io/npm/v/uu-console.svg)
+![npm](https://img.shields.io/npm/dt/uu-console.svg)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/uu-console.svg?color=46c018)
+![GitHub last commit](https://img.shields.io/github/last-commit/lennokiki/uu-console.svg)
+
+Hi, this is a toy. When you use `console.log` to print some logs, this can help you do some useless things.
 
 ## What is uu-console
 
@@ -60,8 +65,11 @@ Using unpkg CDN:
 
 in umd html
 
-```html
-uuConsole.log('Hello', 'This is', 'uu-console') uuConsole.log(['Hello', 'This is', 'uu-console'])
+```js
+uuConsole.log('Hello', 'This is', 'uu-console');
+
+// or
+uuConsole.log(['Hello', 'This is', 'uu-console']);
 ```
 
 in esm project
