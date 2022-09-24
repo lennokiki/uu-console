@@ -1,6 +1,6 @@
 {
   "name": "uu-console",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An enhanced version of console.log",
   "main": "dist/uu-console.umd.js",
   "module": "dist/uu-console.esm.js",
