@@ -11,7 +11,7 @@ Hi, this is a toy. When you use `console.log` to print some logs, this can help 
 
 - Support built-in multiple theme color cards to display different print log background theme colors.
 - Support built-in multiple sizes, display different print log font sizes.
-- Supports custom sizes and themes.
+- Support custom sizes and themes.
 - Compactly, core library only 8K.
 
 ## Features
@@ -221,17 +221,17 @@ uuConsole.setCustomTheme('my-theme', themeProps).useTheme('my-theme');
 uuConsole.useSize('medium').log('Hello', 'B-O-Y,', 'Where are you from');
 ```
 
-> delCustomTheme(name)
+> deleteCustomTheme(name)
 
 Only custom theme can be deleted.
 
 ```js
 // No101 is not custom, cannot be deleted!
-uuConsole.delCustomTheme('No101');
+uuConsole.deleteCustomTheme('No101');
 
 // Only custom theme can be deleted.
 uuConsole.setCustomTheme('my-theme', []);
-uuConsole.delCustomTheme('my-theme');
+uuConsole.deleteCustomTheme('my-theme');
 ```
 
 > installTheme(theme1, [theme2, theme3...])
